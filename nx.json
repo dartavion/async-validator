@@ -1,0 +1,31 @@
+{
+  "npmScope": "ranke",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "ng-plato": {
+      "tags": []
+    },
+    "ng-plato-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ng-plato"]
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    },
+    "directives": {
+      "tags": []
+    }
+  }
+}
