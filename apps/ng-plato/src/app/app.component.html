@@ -1,8 +1,12 @@
-<div style="text-align:center">
-  <h1>Welcome to ng-plato!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
-  />
-</div>
+
 <div>Message: {{ hello$ | async | json }}</div>
+<form [formGroup]="formGroup">
+  <label>Yes</label>
+  <input style="width: 100%" formControlName="yes" type="text" />
+  <label>No</label>
+  <input style="width: 100%" formControlName="no" type="text" />
+  <button style="width: 100%">submit</button>
+  <pre>{{formGroup.value | json}}</pre>
+  <pre>{{formGroup.valid | json}}</pre>
+  <pre>{{formGroup.errors | json}}</pre>
+</form>

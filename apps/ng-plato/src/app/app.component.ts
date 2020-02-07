@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Message } from '@ranke/api-interfaces';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { YesNoService, yesNoValidator } from '@ranke/directives';
 
 @Component({
   selector: 'ranke-root',
@@ -9,5 +11,12 @@ import { Message } from '@ranke/api-interfaces';
 })
 export class AppComponent {
   hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  formGroup: FormGroup;
+
+  constructor(private http: HttpClient, private fb: FormBuilder, private yestNoService: YesNoService) {
+    this.formGroup = this.fb.group({
+      yes: ['', [Validators.required]],
+      no: ['']
+    }, {asyncValidators: [yesNoValidator(this.yestNoService)]})
+  }
 }
